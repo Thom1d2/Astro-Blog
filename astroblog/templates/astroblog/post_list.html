@@ -3,21 +3,17 @@
     <head>
         <title>Thom's Astro blog</title>
     </head>
-    <body>
-        <header>
-            <h1><a href="/">Astro Blog</a></h1>
-        </header>
+<body>
+  <header>
+    <h1><a href="/">Astro Blog</a></h1>
+  </header>
 
-        <article>
-            <time>published: 27.010.2022, 15:49</time>
-            <h2><a href="">My first post</a></h2>
-            <p>Hey Abs</p>
-        </article>
-
-        <article>
-            <time>published: 27.010.2022, 15:52</time>
-            <h2><a href="">My second post</a></h2>
-            <p>AI made a blog :)</p>
-        </article>
-    </body>
+  {% for post in posts %}
+  <article>
+      <time>published: {{ post.published_date }}</time>
+      <h2><a href="">{{ post.title }}</a></h2>
+      <p>{{ post.text|linebreaksbr }}</p>
+  </article>
+  {% endfor %}
+</body>
 </html>
